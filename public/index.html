@@ -456,6 +456,19 @@
     color: #ccc;
     font-weight: 500;
   }
+  .community-pics {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-top: 20px;
+  }
+  .community-pics img {
+    width: 100%;
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.08);
+    object-fit: cover;
+    max-height: 220px;
+  }
 
   /* PROFESSIONS */
   .professions-section {
@@ -884,6 +897,12 @@
           <span class="bonus-tag">Other Creators</span>
           <span class="bonus-tag">Specific Direction</span>
         </div>
+        <div class="community-pics">
+          <img src="1.png" alt="Community member getting value" />
+          <img src="2.png" alt="Community member getting value" />
+          <img src="3.png" alt="Community member getting value" />
+          <img src="4.png" alt="Community member getting value" />
+        </div>
       </div>
     </div>
   </div>
@@ -951,9 +970,9 @@
   <div class="cta-inner">
     <div class="cta-spots">
       <span class="dot"></span>
-      Only 9 of 50 spots remaining
+      Early bird offer is over
     </div>
-    <div class="countdown-title">⚡ Price increases when spots run out</div>
+    <div class="countdown-title">⚡ Enrol Now before the next hike</div>
     <div class="countdown-wrap">
       <div class="countdown-unit">
         <span class="countdown-num" id="cd-hours">00</span>
@@ -973,7 +992,7 @@
     <h2 class="cta-title">Join the Challenge Now</h2>
     <div class="price-block">
       <div class="price-old">₹4,999</div>
-      <div class="price-new">₹999</div>
+      <div class="price-new">₹1,999</div>
       <div class="price-period">one-time · lifetime access to community</div>
     </div>
     <div class="spots-bar"><div class="spots-fill"></div></div>
