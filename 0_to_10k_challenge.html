@@ -468,7 +468,42 @@
     border: 1px solid rgba(255,255,255,0.08);
     object-fit: cover;
     max-height: 220px;
+    cursor: pointer;
+    transition: opacity 0.2s, transform 0.2s;
   }
+  .community-pics img:hover {
+    opacity: 0.85;
+    transform: scale(1.02);
+  }
+  #lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.88);
+    z-index: 10000;
+    align-items: center;
+    justify-content: center;
+  }
+  #lightbox.active {
+    display: flex;
+  }
+  #lightbox img {
+    max-width: 90vw;
+    max-height: 90vh;
+    border-radius: 12px;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.6);
+  }
+  #lightbox-close {
+    position: fixed;
+    top: 20px;
+    right: 28px;
+    font-size: 36px;
+    color: #fff;
+    cursor: pointer;
+    line-height: 1;
+    opacity: 0.8;
+  }
+  #lightbox-close:hover { opacity: 1; }
 
   /* PROFESSIONS */
   .professions-section {
@@ -1039,6 +1074,24 @@
   }
   tick();
   setInterval(tick, 1000);
+</script>
+
+<!-- Lightbox -->
+<div id="lightbox">
+  <span id="lightbox-close">&times;</span>
+  <img id="lightbox-img" src="" alt="Community screenshot" />
+</div>
+<script>
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  document.querySelectorAll('.community-pics img').forEach(img => {
+    img.addEventListener('click', () => {
+      lightboxImg.src = img.src;
+      lightbox.classList.add('active');
+    });
+  });
+  document.getElementById('lightbox-close').addEventListener('click', () => lightbox.classList.remove('active'));
+  lightbox.addEventListener('click', e => { if (e.target === lightbox) lightbox.classList.remove('active'); });
 </script>
 </body>
 </html>
